@@ -1,0 +1,68 @@
+
+  <div>
+    <form name="userAddForm">
+     <table class="table borderless">
+       <tr>
+         <td class="tdSpace"><label><strong>Task:</strong></label></td>
+          <td><input id="txtTask" name="task" type="text" required  class="inputStyle" 
+           [(ngModel)]="item.TaskName"></td>
+       </tr>
+       <tr>
+         <td class="tdSpace"><label><strong>Priority:</strong></label></td>
+         <td class="inputStyle"><input name="range" type="range" 
+                   min="0" max="30" step="1" value="0" 
+                   id="txtRange" class="slider inputStyle"
+                    oninput="rangeOutput.value = range.value" 
+                    [(ngModel)]="item.Priority"></td>
+         <td><output id="rangeOutput" name="rangeOutput" 
+           onloadstart="0" style="padding-top: 0px !important"></output></td>
+       </tr>
+       <tr>
+           <td class="tdSpace"><label><strong>Parent Task:</strong></label></td>
+           <td>
+                 <select id="txtParent" [(ngModel)]="item.ParentTask" 
+                 name="ParentTask" class="inputStyle inputStyleForDD">
+                     <option value="Select Parent Task">Select Parent Task</option>
+                     <option [ngValue]="pt.TaskName" *ngFor="let pt of _tasks"> 
+                         {{ pt.TaskName }} </option>
+                   </select>
+           </td>
+       </tr>
+       <tr>
+           <td class="tdSpace"><label><strong>Start Date:</strong></label></td>
+           <td>
+             <input type="Date" id="dtStartDate" 
+               [(ngModel)]="item.StartDate" class="inputStyle" 
+               required name="StartDate">
+           </td>
+       </tr>
+       <tr>
+           <td class="tdSpace"><label><strong>End Date:</strong></label></td>
+           <td>
+             <input type="Date" id="dtEndDateDate"
+                [(ngModel)]="item.EndDate" name="EndDate" class="inputStyle">
+           </td>
+       </tr>      
+       <tr>
+           <td class="tdSpace">
+           
+             </td>
+         <td class="btnAdd">
+           <input type="submit" class="btn btn-primary" (click)=Insert() 
+           value="Add Task" id="btnAdd" name="btnAdd"  >
+             &nbsp;&nbsp;
+             <input type="reset" class="btn btn-primary"
+              (click)=Reset()  name="btnReset" value="Reset">
+         </td>
+     </tr>
+     <tr>
+         <td colspan="2">
+             <div>
+               {{ message }}
+             </div>
+         </td>
+     </tr>
+     </table>
+   </form>
+   </div>
+ 

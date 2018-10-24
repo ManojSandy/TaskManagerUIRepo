@@ -1,0 +1,58 @@
+
+   <table class="borderless">
+      <tr>
+        <td class= "rowOneSpace">
+          <label><strong>Task:</strong></label>
+        </td>
+        <td colspan="3" class="rowOneSpace">
+           <input type="text" class="taskClass" id="txtTask" 
+            [(ngModel)]="SearchTaskName"> 
+        </td>          
+        <td class= "labelSpace2 rowOneSpace">
+            <label><strong>Parent Task:</strong></label>
+        </td>
+        <td colspan="3" class="rowOneSpace">
+            <input type="text" class="parentTaskClass" id="txtParentTask" 
+            [(ngModel)]="SearchParentTaskName"> 
+        </td>
+      </tr>
+      <tr>
+        <td class="labelSpace rowTwoSpace"><label><strong>Priority From:</strong></label></td>
+        <td class="rowTwoSpace"><input type="text" class="priorityInputs" [(ngModel)]="SearchPriorityFrom"
+          id="txtPriorityFrom"></td>
+        <td class="labelSpace3 rowTwoSpace"><label><strong>Priority To:</strong></label></td>   
+        <td class="rowTwoSpace"><input type="text" class="priorityInputs" id="txtPriorityTo" 
+          [(ngModel)]="SearchPriorityTo"></td>
+        <td class="labelSpace2 rowTwoSpace"><label><strong>Start Date:</strong></label></td>
+        <td class="rowTwoSpace"><input type="date" id="dtStartDate" 
+          [(ngModel)]="SearchStartDate"></td>
+        <td class="labelSpace3 rowTwoSpace"><label><strong>End Date:</strong></label></td>
+        <td class="rowTwoSpace"><input type="date" id="dtEndDate"
+      [(ngModel)]="SearchEndDate"></td>
+      </tr>
+      <tr>        
+      </tr>
+    </table>
+    
+    <table class="table borderless">
+      <tr>
+        <th>Task</th>
+        <th>Parent Task</th>
+        <th>Priority</th>
+        <th>Start</th>
+        <th>End</th>
+        <th></th>
+        <th></th>
+      </tr>
+    
+      <tr *ngFor="let task of _tasksList">
+        <td>{{ task.TaskName }}</td>
+        <td>{{ task.ParentTask }}</td>
+        <td>{{ task.Priority }}</td>
+        <td>{{ task.StartDate | date : 'dd/MM/yyyy' }} </td>
+        <td>{{ task.EndDate | date : 'dd/MM/yyyy' }}</td>
+        <td><button type="button" class="btn btn-primary" (click)=Update(task)>Edit Task</button> </td>
+        <td><button type="button" class="btn btn-primary" [disabled]="task.Deleted"  (click)=Delete(task.TaskId)>End Task</button> </td>
+      </tr>
+    </table>
+    

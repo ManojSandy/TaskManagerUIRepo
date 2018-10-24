@@ -1,0 +1,75 @@
+  <div>
+    <form name="userUpdateForm">
+     <table class="table borderless">
+       <tr>
+         <td class="tdSpace"><label><strong>Task:</strong></label></td>
+         <td>
+             <input type="text" id="txtTask" [readonly]="item.Deleted"
+             [(ngModel)]="item.TaskName" required
+                name="TaskName" class="inputStyle">
+          </td>
+       </tr>
+       <tr>
+         <td class="tdSpace"><label><strong>Priority:</strong></label></td>
+         <td class="inputStyle">
+              <input type="range" id="txtRange" 
+              min="0" max="30" step="1" [disabled]="item.Deleted"
+               value="0" [(ngModel)]="item.Priority" name="Priority"
+               oninput="rangeOutput.value = range.value"
+                  class="slider inputStyle"
+                  >
+                  </td>
+                    <td><output id="rangeOutput" name="rangeOutput" disabled="item.Deleted"
+                      onloadstart="0" style="font-weight: bold; padding-top: 0px !important"></output></td>
+       </tr>
+       <tr>
+           <td class="tdSpace"><label><strong>Parent Task:</strong></label></td>
+           <td>
+                 <select id="txtParent" [(ngModel)]="item.ParentTask" 
+                 [disabled]="item.Deleted" name="ParentTask" class="inputStyle inputStyleForDD">
+                      <option value="Select Parent Task">Select Parent Task</option>
+                      <option [ngValue]="k.TaskName" *ngFor="let k of _tasks"> {{ k.TaskName }} </option>
+                  </select>
+           </td>
+       </tr>
+       <tr>
+           <td class="tdSpace"><label><strong>Start Date:</strong></label></td>
+           <td>
+               <input type="date" id="dtStartDate" required 
+              [readonly]="item.Deleted"
+              [(ngModel)]="item.StartDate" name="StartDate" class="inputStyle">
+          </td>
+       </tr>
+       <tr>
+           <td class="tdSpace"><label><strong>End Date:</strong></label></td>
+           <td>
+               <input type="date" id="dtEndDate" 
+              [readonly]="item.Deleted"
+               [(ngModel)]="item.EndDate" 
+               name="EndDate" class="inputStyle">
+              </td>
+       </tr>
+       <tr>
+         <td class="tdSpace">
+           
+         </td>
+         <td>
+              <input type="submit" class="btn btn-primary" 
+              [disabled]="item.Deleted"  (click)=Update() id="btnUpdate"  
+              name="Update" value="Update">
+              &nbsp;&nbsp;
+              <input type="button" class="btn btn-primary" 
+              (click)='cancel()' name="Cancel" value="Cancel">
+           </td>
+       </tr>
+       <tr>
+              <td colspan="2">
+                  <div>
+                    {{ message }}
+                  </div>
+              </td>
+          </tr>
+     </table>
+   </form>
+   </div>
+ 
