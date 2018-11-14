@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../../models/task';
 import { TaskManagerServiceService } from '../../Service/task-manager-service.service';
-import { Router } from '@angular/router';
-
 
 declare var $: any;
 

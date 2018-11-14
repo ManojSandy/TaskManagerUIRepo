@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule,Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { AddComponent } from './UI/add/add.component';
@@ -25,7 +26,8 @@ const appRoutes : Routes = [
     ViewComponent
   ],
   imports: [
-    BrowserModule ,FormsModule , HttpModule , RouterModule.forRoot(appRoutes)
+    BrowserModule ,FormsModule,HttpModule,HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [TaskManagerServiceService],
   bootstrap: [AppComponent]

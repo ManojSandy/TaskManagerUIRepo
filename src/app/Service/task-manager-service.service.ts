@@ -3,6 +3,8 @@ import { Http,Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import { catchError } from 'rxjs/operators';
+
+import {HttpClient} from '@angular/common/http';
 import { Task } from '../models/task';
 
 @Injectable({

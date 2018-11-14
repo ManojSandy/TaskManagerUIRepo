@@ -4,6 +4,7 @@ import { Task } from '../../models/task';
 import { TaskManagerServiceService } from '../../Service/task-manager-service.service';
 import { Observable } from 'rxjs';
 
+
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',

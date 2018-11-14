@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddComponent } from './add.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { TaskManagerServiceService } from '../../Service/task-manager-service.service';
+import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+
 
 describe('AddComponent', () => {
   let component: AddComponent;
@@ -8,7 +12,9 @@ describe('AddComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddComponent ]
+      declarations: [ AddComponent ],
+      imports:[RouterTestingModule,FormsModule,ReactiveFormsModule],
+      providers: [TaskManagerServiceService]
     })
     .compileComponents();
   }));
@@ -19,7 +25,4 @@ describe('AddComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
 });
